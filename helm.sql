@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 12, 2019 at 02:33 PM
+-- Generation Time: Dec 13, 2019 at 01:09 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -45,9 +45,8 @@ CREATE TABLE `helm_jadi` (
 
 INSERT INTO `helm_jadi` (`id`, `merek`, `tipe`, `ukuran`, `jenis`, `warna`, `harga`, `gambar`) VALUES
 (2, 'G', 'GM-10', 'L', 'half face', 'Merah', '3000', '12.jpg'),
-(11, 'mds', 'supermoto', 'M', 'halface', 'hitam', '450000', '24.jpg'),
-(12, 'BOGO', 'BOGO-2019', 'L', 'half-face', 'coklat', '170000', 'bogo.jpg'),
-(13, 'ad', 'b', 'c', 'htr', 'er', '99', 'c51.jpg');
+(11, 'mds', 'supermoto', 'M', 'halface', 'hitam', '450000', 'Kijang_toha_11.jpg'),
+(12, 'BOGO', 'BOGO-2019', 'L', 'half-face', 'coklat', '170000', 'bogo.jpg');
 
 -- --------------------------------------------------------
 
@@ -75,7 +74,7 @@ INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_a
 (4, 'stephen curry', 'sc30@gmail.com', '173040080.jpg', '$2y$10$AXIPSNH1Oe94lJSnsH6TY.DHg0tsesAhQzQTNesFV5gpO2h6ZBzCO', 2, 1, 1574827656),
 (5, 'dindin', 'aku@mail.com', 'default.jpg', '$2y$10$PJGJMfCyagXqQG3bpfgff.8k5GlJHikLey2YhvCXKbb/hW.pRVq3y', 2, 1, 1575095973),
 (6, 'tosaedi ibrahim', 'tosaediibrahim@gmail.com', 'default.jpg', '$2y$10$ZVh0zPmHCwu54OBaLxI.KexP2w7.0FTyZv25AX/gMgiX32yYiKXni', 2, 1, 1575131556),
-(7, 'madani', 'muhamadgemam@gmail.com', 'default.jpg', '$2y$10$CQJw6nFTdaENpHaDYG9QpeoF7/W0TVsIih7Rl7HkVYTnJ02DfyDxy', 2, 1, 1576148255);
+(11, 'Rekweb', 'rekwebtubes@gmail.com', 'default.jpg', '$2y$10$YrihQdScQ.nmtZrrBwSoye8p3TQ3bpFHGEH3.ewAcdtdyBMRRMTCa', 2, 1, 1576238669);
 
 -- --------------------------------------------------------
 
@@ -187,7 +186,8 @@ CREATE TABLE `user_token` (
 --
 
 INSERT INTO `user_token` (`id`, `email`, `token`, `date_created`) VALUES
-(10, 'muhamadgemam@gmail.com', '9eYz9ZvNeXzJX561eR7IKPVx9nAI1TEZ9tFJf+g4cPo=', 1576145018);
+(10, 'muhamadgemam@gmail.com', '9eYz9ZvNeXzJX561eR7IKPVx9nAI1TEZ9tFJf+g4cPo=', 1576145018),
+(18, 'rekwebtubes@gmail.com', 'MWR37/fJyC4bicq/zQrTl3c+eazydRJ4cGdIgJUFafw=', 1576238716);
 
 --
 -- Indexes for dumped tables
@@ -243,13 +243,13 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT for table `helm_jadi`
 --
 ALTER TABLE `helm_jadi`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `user_access_menu`
@@ -279,7 +279,7 @@ ALTER TABLE `user_sub_menu`
 -- AUTO_INCREMENT for table `user_token`
 --
 ALTER TABLE `user_token`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
