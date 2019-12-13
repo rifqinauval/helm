@@ -15,6 +15,19 @@
 
       <?= $this->session->flashdata('message'); ?>
 
+      <div class="row mt-3">
+        <div class="col md-6">
+              <form action="" method= "post">
+              <div class="input-group mb-2">
+                  <input type="text" class="form-control" placeholder="Cari Helm.." name="keyword">
+                  <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit">Cari</button>
+                  </div>
+                </div>
+              </form>
+        </div>
+      </div>
+
       <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newSubMenuModal">Tambah Produk</a>
       
       <table class="table table-hover">
@@ -30,6 +43,11 @@
             <th scope="col">Harga</th>
           </tr>
         </thead>
+        <?php if (empty($produk)) : ?> 
+                  <div class="alert alert-danger" role="alert">
+                      Helm Tidak Ditemukan...
+                    </div>
+        <?php endif; ?>
 
         <tbody class="">
           <?php $i = 1; ?>

@@ -62,4 +62,13 @@ class Helm_model extends CI_model
 		$this->db->where('id', $this->input->post('id'));
 		$this->db->update('helm_jadi', $data);
 	}
+
+	public function cariDataHelm() 
+	{
+		$keyword = $this->input->post('keyword', true);
+		$this->db->like('merek', $keyword);
+		$this->db->or_like('warna', $keyword);
+		return $this->db->get('helm_jadi')->result_array();
+	}
+
 }

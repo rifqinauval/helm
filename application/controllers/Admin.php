@@ -39,12 +39,16 @@ class Admin extends CI_Controller
         // $this->load->view('admin/data_produk', $data);
         // $this->load->view('templates/footbar');
 
-        $this->form_validation->set_rules('merek', 'Merek', 'required');
-        $this->form_validation->set_rules('tipe', 'Tipe', 'required');
-        $this->form_validation->set_rules('ukuran', 'Ukuran', 'required');
-        $this->form_validation->set_rules('jenis', 'Jenis', 'required');
-        $this->form_validation->set_rules('warna', 'Warna', 'required');
-        $this->form_validation->set_rules('harga', 'Harga', 'required');
+        if ($this->input->post('keyword')) {
+            $data['produk'] = $this->Helm_model->cariDataHelm();
+        }
+
+        // $this->form_validation->set_rules('merek', 'Merek', 'required');
+        // $this->form_validation->set_rules('tipe', 'Tipe', 'required');
+        // $this->form_validation->set_rules('ukuran', 'Ukuran', 'required');
+        // $this->form_validation->set_rules('jenis', 'Jenis', 'required');
+        // $this->form_validation->set_rules('warna', 'Warna', 'required');
+        // $this->form_validation->set_rules('harga', 'Harga', 'required');
         // $this->form_validation->set_rules('gambar', 'Gambar', 'required');
       
 
