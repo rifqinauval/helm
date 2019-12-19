@@ -6,7 +6,7 @@
 
   <!-- <div class="row">
         <div class="col-md-5">
-            <form action="<?= base_url('user');?>" method="post">
+            <form action="<?= base_url('user'); ?>" method="post">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Cari Helm...." name="keyword" autocomplete="off" autofocus>
                     <div class="input-group-append">
@@ -61,7 +61,7 @@
         </tbody>
       </table>
 
-     
+      <?= $this->pagination->create_links(); ?>
 
     </div>
   </div>
@@ -71,4 +71,3 @@
 
 </div>
 <!-- End of Main Content -->
-

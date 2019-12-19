@@ -10,6 +10,22 @@ class User extends CI_Controller
         $this->load->model('Helm_model');
         $this->load->library('form_validation');
         is_logged_in();
+
+        $this->load->model('Helm_model', 'helm');
+
+        //PAGINATION
+        $this->load->library('pagination');
+
+        //config
+        $config['base_url'] = 'http://localhost/helm/user/data_produk_user/__construct';
+        $config['total_rows'] = $this->helm->countAllHelm();
+        $config['per_page'] = 3;
+
+        //initialize
+        $this->pagination->initialize($config);
+        $data['start'] = $this->uri->segment(4);
+        //$data['helm'] = $this->helm->getProduk(1, 3);
+        $data['helm_jadi'] = $this->helm->getProduk($config['per_page'], $data['start']);
     }
 
     public function index()
@@ -23,7 +39,6 @@ class User extends CI_Controller
         $this->load->view('templates/topbar', $data);
         $this->load->view('user/index', $data);
         $this->load->view('templates/footbar');
-
     }
 
     public function data_produk_user()
@@ -38,8 +53,6 @@ class User extends CI_Controller
         $this->load->view('templates/topbar', $data);
         $this->load->view('user/data_produk_user', $data);
         $this->load->view('templates/footbar');
-
-         
     }
 
     public function detail($id)
