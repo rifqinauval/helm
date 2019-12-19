@@ -7,15 +7,21 @@ class Helm_model extends CI_model
 	// 	$this->db->get_where('helm_jadi', ;
 	// }
 
+	public function getProduk($limit, $start)
+	{
+		return $this->db->get('helm_jadi', $limit, $start)->result_array();
+	}
+
+
 	public function getProdukById($id)
 	{
 		return $this->db->get_where('helm_jadi', ['id' => $id])->row_array();
 	}
 
-	public function tambahProduk($data){
-		
-			$this->db->insert('helm_jadi', $data);
-		
+	public function tambahProduk($data)
+	{
+
+		$this->db->insert('helm_jadi', $data);
 	}
 
 	public function hapusDataProduk($id)
@@ -34,22 +40,22 @@ class Helm_model extends CI_model
 		$warna = $this->input->post('warna');
 		$harga = $this->input->post('harga');
 		$gambar = $_FILES['gambar'];
-		if($gambar=""){
-			
-		}else{
+		if ($gambar = "") {
+		} else {
 			$config['upload_path'] = './assets/img/produk';
-			 $config['allowed_types'] = 'gif|jpg|png';
-			 $config['max_size']     = '2048';
+			$config['allowed_types'] = 'gif|jpg|png';
+			$config['max_size']     = '2048';
 
-			 $this->load->library('upload', $config);
+			$this->load->library('upload', $config);
 
-			 if (!$this->upload->do_upload('gambar')){
-				 echo "gagal"; die;
-			 }else{
-				 $gambar = $this->upload->data('file_name');
-			 }
+			if (!$this->upload->do_upload('gambar')) {
+				echo "gagal";
+				die;
+			} else {
+				$gambar = $this->upload->data('file_name');
+			}
 		}
-				// $gambar = $this->input->post('gambar')
+		// $gambar = $this->input->post('gambar')
 		$data = array(
 			'merek' => $merek,
 			'tipe' => $tipe,
@@ -58,12 +64,12 @@ class Helm_model extends CI_model
 			'warna' => $warna,
 			'harga' => $harga,
 			'gambar' => $gambar
-	);
+		);
 		$this->db->where('id', $this->input->post('id'));
 		$this->db->update('helm_jadi', $data);
 	}
 
-	public function cariDataHelm() 
+	public function cariDataHelm()
 	{
 		$keyword = $this->input->post('keyword', true);
 		$this->db->like('merek', $keyword);
@@ -71,4 +77,8 @@ class Helm_model extends CI_model
 		return $this->db->get('helm_jadi')->result_array();
 	}
 
+	public function countAllHelm()
+	{
+		return $this->db->get('helm_jadi')->num_rows();
+	}
 }

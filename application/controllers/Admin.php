@@ -11,6 +11,22 @@ class Admin extends CI_Controller
         $this->load->model('Helm_model');
         $this->load->library('form_validation');
         is_logged_in();
+
+        $this->load->model('Helm_model', 'helm');
+
+        //PAGINATION
+        $this->load->library('pagination');
+
+        //config
+        $config['base_url'] = 'http://localhost/helm/admin/data_produk/__construct';
+        $config['total_rows'] = $this->helm->countAllHelm();
+        $config['per_page'] = 3;
+
+        //initialize
+        $this->pagination->initialize($config);
+        $data['start'] = $this->uri->segment(4);
+        //$data['helm'] = $this->helm->getProduk(1, 3);
+        $data['helm_jadi'] = $this->helm->getProduk($config['per_page'], $data['start']);
     }
 
     public function index()
@@ -43,14 +59,14 @@ class Admin extends CI_Controller
             $data['produk'] = $this->Helm_model->cariDataHelm();
         }
 
-        // $this->form_validation->set_rules('merek', 'Merek', 'required');
-        // $this->form_validation->set_rules('tipe', 'Tipe', 'required');
-        // $this->form_validation->set_rules('ukuran', 'Ukuran', 'required');
-        // $this->form_validation->set_rules('jenis', 'Jenis', 'required');
-        // $this->form_validation->set_rules('warna', 'Warna', 'required');
-        // $this->form_validation->set_rules('harga', 'Harga', 'required');
+        $this->form_validation->set_rules('merek', 'Merek', 'required');
+        $this->form_validation->set_rules('tipe', 'Tipe', 'required');
+        $this->form_validation->set_rules('ukuran', 'Ukuran', 'required');
+        $this->form_validation->set_rules('jenis', 'Jenis', 'required');
+        $this->form_validation->set_rules('warna', 'Warna', 'required');
+        $this->form_validation->set_rules('harga', 'Harga', 'required');
         // $this->form_validation->set_rules('gambar', 'Gambar', 'required');
-      
+
 
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
@@ -66,22 +82,22 @@ class Admin extends CI_Controller
             $warna = $this->input->post('warna');
             $harga = $this->input->post('harga');
             $gambar = $_FILES['gambar'];
-            if($gambar=""){
-
-            }else{
+            if ($gambar = "") {
+            } else {
                 $config['upload_path'] = './assets/img/produk';
-                 $config['allowed_types'] = 'gif|jpg|png';
-                 $config['max_size']     = '2048';
+                $config['allowed_types'] = 'gif|jpg|png';
+                $config['max_size']     = '2048';
 
-                 $this->load->library('upload', $config);
+                $this->load->library('upload', $config);
 
-                 if (!$this->upload->do_upload('gambar')){
-                     echo "gagal"; die;
-                 }else{
-                     $gambar = $this->upload->data('file_name');
-                 }
+                if (!$this->upload->do_upload('gambar')) {
+                    echo "gagal";
+                    die;
+                } else {
+                    $gambar = $this->upload->data('file_name');
+                }
             }
-                    // $gambar = $this->input->post('gambar')
+            // $gambar = $this->input->post('gambar')
             $data = array(
                 'merek' => $merek,
                 'tipe' => $tipe,
@@ -90,8 +106,8 @@ class Admin extends CI_Controller
                 'warna' => $warna,
                 'harga' => $harga,
                 'gambar' => $gambar
-        );
-            
+            );
+
             $this->db->insert('helm_jadi', $data);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Produk berhasil ditambahkan!</div>');
             redirect('admin/data_produk');
@@ -156,7 +172,8 @@ class Admin extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success">Access Change ! </div>');
     }
 
-    public function tambah_produk(){
+    public function tambah_produk()
+    {
         $data['title'] = 'Data Produk';
 
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
@@ -173,7 +190,7 @@ class Admin extends CI_Controller
         $jenis = $this->input->post('jenis');
         $warna = $this->input->post('warna');
         $harga = $this->input->post('harga');
-                // $gambar = $this->input->post('gambar')
+        // $gambar = $this->input->post('gambar')
         $data = array(
             'merek' => $merek,
             'tipe' => $tipe,
@@ -201,7 +218,7 @@ class Admin extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['produk'] = $this->Helm_model->getProdukById($id);
 
-        
+
 
         $this->form_validation->set_rules('merek', 'Merek', 'required');
         $this->form_validation->set_rules('tipe', 'Tipe', 'required');

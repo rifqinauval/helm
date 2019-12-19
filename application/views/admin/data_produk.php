@@ -17,19 +17,19 @@
 
       <div class="row mt-3">
         <div class="col md-6">
-              <form action="" method= "post">
-              <div class="input-group mb-2">
-                  <input type="text" class="form-control" placeholder="Cari Helm.." name="keyword">
-                  <div class="input-group-append">
-                    <button class="btn btn-primary" type="submit">Cari</button>
-                  </div>
-                </div>
-              </form>
+          <form action="" method="post">
+            <div class="input-group mb-2">
+              <input type="text" class="form-control" placeholder="Cari Helm.." name="keyword">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">Cari</button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
 
       <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newSubMenuModal">Tambah Produk</a>
-      
+
       <table class="table table-hover">
         <thead>
           <tr>
@@ -43,10 +43,10 @@
             <th scope="col">Harga</th>
           </tr>
         </thead>
-        <?php if (empty($produk)) : ?> 
-                  <div class="alert alert-danger" role="alert">
-                      Helm Tidak Ditemukan...
-                    </div>
+        <?php if (empty($produk)) : ?>
+          <div class="alert alert-danger" role="alert">
+            Helm Tidak Ditemukan...
+          </div>
         <?php endif; ?>
 
         <tbody class="">
@@ -72,6 +72,8 @@
         </tbody>
       </table>
 
+      <?= $this->pagination->create_links(); ?>
+
     </div>
   </div>
 
@@ -96,54 +98,54 @@
         </button>
       </div>
       <!-- <form action="<?= base_url('admin/data_produk'); ?>" method="post"> -->
-        <div class="modal-body">
+      <div class="modal-body">
 
-          <?php echo form_open_multipart('admin/data_produk'); ?>
+        <?php echo form_open_multipart('admin/data_produk'); ?>
 
-          <div class="form-group">
-            <input type="text" class="form-control" id="merek" name="merek" placeholder="Merek Produk">
-          </div>
+        <div class="form-group">
+          <input type="text" class="form-control" id="merek" name="merek" placeholder="Merek Produk">
+        </div>
 
-          <div class="form-group">
-            <input type="text" class="form-control" id="tipe" name="tipe" placeholder="Tipe Produk">
-          </div>
+        <div class="form-group">
+          <input type="text" class="form-control" id="tipe" name="tipe" placeholder="Tipe Produk">
+        </div>
 
-          <div class="form-group">
-            <input type="text" class="form-control" id="ukuran" name="ukuran" placeholder="Ukuran Produk">
-          </div>
+        <div class="form-group">
+          <input type="text" class="form-control" id="ukuran" name="ukuran" placeholder="Ukuran Produk">
+        </div>
 
-          <div class="form-group">
-            <input type="text" class="form-control" id="jenis" name="jenis" placeholder="Jenis Produk">
-          </div>
+        <div class="form-group">
+          <input type="text" class="form-control" id="jenis" name="jenis" placeholder="Jenis Produk">
+        </div>
 
-          <div class="form-group">
-            <input type="text" class="form-control" id="warna" name="warna" placeholder="Warna Produk">
-          </div>
+        <div class="form-group">
+          <input type="text" class="form-control" id="warna" name="warna" placeholder="Warna Produk">
+        </div>
 
-          <div class="form-group">
-            <input type="text" class="form-control" id="harga" name="harga" placeholder="Harga Produk">
-          </div>
+        <div class="form-group">
+          <input type="text" class="form-control" id="harga" name="harga" placeholder="Harga Produk">
+        </div>
 
-          
-          <div class="form-group">
+
+        <div class="form-group">
           <!-- <img class="img-produk" src="<?= base_url('assets/img/produk/') . $pr['gambar']; ?>" style="height: 10rem;"> -->
           <!-- <div class="col-sm-9">
  			 						<div class="custom-file"> -->
-  										<label>Choose file</label>
-  										<input type="file" class="form_control" id="gambar" name="gambar">
-									<!-- </div>
+          <label>Choose file</label>
+          <input type="file" class="form_control" id="gambar" name="gambar">
+          <!-- </div>
  			 					</div> -->
-          </div>
-          
-
-
         </div>
-        <div class="modal-footer">
 
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">ADD</button>
-      <?php echo form_close(); ?>
-        </div>
+
+
+      </div>
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">ADD</button>
+        <?php echo form_close(); ?>
+      </div>
     </div>
   </div>
 </div>
