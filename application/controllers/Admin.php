@@ -67,6 +67,9 @@ class Admin extends CI_Controller
         $this->form_validation->set_rules('harga', 'Harga', 'required');
         // $this->form_validation->set_rules('gambar', 'Gambar', 'required');
 
+        // if ($this->form_validation->run() == FALSE) {
+        //     $this->load->view('data_produk');
+        // }
 
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);

@@ -76,9 +76,17 @@ class Helm_model extends CI_model
 		$this->db->or_like('warna', $keyword);
 		return $this->db->get('helm_jadi')->result_array();
 	}
+	public function cariDataHelmUser()
+	{
+		$keyword = $this->input->post('keyword', true);
+		$this->db->like('merek', $keyword);
+		$this->db->or_like('tipe', $keyword);
+		return $this->db->get('helm_jadi')->result_array();
+	}
 
 	public function countAllHelm()
 	{
 		return $this->db->get('helm_jadi')->num_rows();
 	}
+	
 }

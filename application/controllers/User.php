@@ -48,11 +48,17 @@ class User extends CI_Controller
 
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['produk'] = $this->db->get('helm_jadi')->result_array();
+
+        if ($this->input->post('keyword')) {
+            $data['produk'] = $this->Helm_model->cariDataHelm();
+        }
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
         $this->load->view('user/data_produk_user', $data);
         $this->load->view('templates/footbar');
+      
+        
     }
 
     public function detail($id)
