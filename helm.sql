@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2019 at 01:09 PM
+-- Generation Time: Dec 24, 2019 at 04:54 AM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -44,9 +44,10 @@ CREATE TABLE `helm_jadi` (
 --
 
 INSERT INTO `helm_jadi` (`id`, `merek`, `tipe`, `ukuran`, `jenis`, `warna`, `harga`, `gambar`) VALUES
-(2, 'G', 'GM-10', 'L', 'half face', 'Merah', '3000', '12.jpg'),
-(11, 'mds', 'supermoto', 'M', 'halface', 'hitam', '450000', 'Kijang_toha_11.jpg'),
-(12, 'BOGO', 'BOGO-2019', 'L', 'half-face', 'coklat', '170000', 'bogo.jpg');
+(2, 'GM', 'GM-10', 'L', 'half face', 'Merah', '3000', '11.jpg'),
+(11, 'mds', 'supermoto', 'M', 'halface', 'hitam', '450000', '34.jpg'),
+(12, 'BOGO', 'BOGO-2019', 'L', 'half-face', 'coklat', '170000', 'bogo.jpg'),
+(16, 'KYT', 'KYT-best', 'L', 'full face', 'Hijau', '400000', 'Espargaró-Replica-1.jpg');
 
 -- --------------------------------------------------------
 
@@ -70,11 +71,14 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
-(3, 'rifqi nauval', 'rifqinauval11@gmail.com', 'jendela1.png', '$2y$10$PY2.YIH4PtQBHCIS1LBHXO/TTfAd7ap6AsS9MTtML57AEw7Q4mjfi', 1, 1, 1574825433),
+(3, 'rifqi nauval', 'rifqinauval11@gmail.com', 'jendela1.png', '$2y$10$nuAbGDWFY6adVd95rqtjA.fV9ZrJ4iLX6tOBv/DHvGl/uS3Wdz7o6', 1, 1, 1574825433),
 (4, 'stephen curry', 'sc30@gmail.com', '173040080.jpg', '$2y$10$AXIPSNH1Oe94lJSnsH6TY.DHg0tsesAhQzQTNesFV5gpO2h6ZBzCO', 2, 1, 1574827656),
 (5, 'dindin', 'aku@mail.com', 'default.jpg', '$2y$10$PJGJMfCyagXqQG3bpfgff.8k5GlJHikLey2YhvCXKbb/hW.pRVq3y', 2, 1, 1575095973),
 (6, 'tosaedi ibrahim', 'tosaediibrahim@gmail.com', 'default.jpg', '$2y$10$ZVh0zPmHCwu54OBaLxI.KexP2w7.0FTyZv25AX/gMgiX32yYiKXni', 2, 1, 1575131556),
-(11, 'Rekweb', 'rekwebtubes@gmail.com', 'default.jpg', '$2y$10$YrihQdScQ.nmtZrrBwSoye8p3TQ3bpFHGEH3.ewAcdtdyBMRRMTCa', 2, 1, 1576238669);
+(11, 'Rekweb', 'rekwebtubes@gmail.com', 'default.jpg', '$2y$10$YrihQdScQ.nmtZrrBwSoye8p3TQ3bpFHGEH3.ewAcdtdyBMRRMTCa', 2, 1, 1576238669),
+(12, 'madani', 'muhamadgemam@gmail.com', 'default.jpg', '$2y$10$npppBfR2CAJzip/xXhAb6uVhDtLViBcmZGTBZukHDZ7Z8isQs8uq6', 2, 0, 1576731181),
+(13, 'madani', 'muhamadgemam04@gmail.com', 'default.jpg', '$2y$10$Hp4uiXyU/oVJA2H2fGX1quCE8XwSh6yQ8C.ByNTNmNk4K9wizTBEm', 2, 0, 1576731238),
+(14, 'abiyyu', 'nama.cookie2019@gmail.com', 'default.jpg', '$2y$10$GPTuUveuI1gdE3QBLHFG7OGz0qbacxc.pPKjVCMW8Kn2OQMPrSrX.', 2, 0, 1576731301);
 
 -- --------------------------------------------------------
 
@@ -187,7 +191,11 @@ CREATE TABLE `user_token` (
 
 INSERT INTO `user_token` (`id`, `email`, `token`, `date_created`) VALUES
 (10, 'muhamadgemam@gmail.com', '9eYz9ZvNeXzJX561eR7IKPVx9nAI1TEZ9tFJf+g4cPo=', 1576145018),
-(18, 'rekwebtubes@gmail.com', 'MWR37/fJyC4bicq/zQrTl3c+eazydRJ4cGdIgJUFafw=', 1576238716);
+(18, 'rekwebtubes@gmail.com', 'MWR37/fJyC4bicq/zQrTl3c+eazydRJ4cGdIgJUFafw=', 1576238716),
+(19, 'muhamadgemam@gmail.com', 'Awe9LA9fr/l5SkCHQRFzlQjxcUMT7ZUK4qz6azSMgbQ=', 1576731181),
+(20, 'muhamadgemam04@gmail.com', 'oE3zlbTDlag74qUj5LKtwooccwn6eblsfLFBJjboH1Q=', 1576731238),
+(21, 'nama.cookie2019@gmail.com', 'gECLrsl8KGSXMvxXctphENSdvUIBIXd4DlXc1PtuEZM=', 1576731301),
+(22, 'rifqinauval11@gmail.com', 'Cy++BbcoKsskE/rKsmJlX9H5eIqz13WAxG9esDvkI3U=', 1576731440);
 
 --
 -- Indexes for dumped tables
@@ -243,13 +251,13 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT for table `helm_jadi`
 --
 ALTER TABLE `helm_jadi`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `user_access_menu`
@@ -279,7 +287,7 @@ ALTER TABLE `user_sub_menu`
 -- AUTO_INCREMENT for table `user_token`
 --
 ALTER TABLE `user_token`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
