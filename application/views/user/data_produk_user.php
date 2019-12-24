@@ -52,14 +52,14 @@
             <th scope="col">Harga</th> -->
           </tr>
         </thead>
-        
+
         <?php if (empty($produk)) : ?>
           <div class="alert alert-danger" role="alert">
             Helm Tidak Ditemukan...
           </div>
         <?php endif; ?>
 
-     
+
 
         <tbody>
           <?php $i = 1; ?>
@@ -74,6 +74,8 @@
               <td><?= $pr['harga']; ?></td> -->
               <td>
                 <a href="<?= base_url(); ?>user/detail/<?= $pr['id']; ?>" class="btn btn-outline-info">detail</a>
+                <a href="<?= base_url(); ?>user/tambah_ke_keranjang/<?= $pr['id']; ?>" class="btn btn-sm btn-success">Tambah Ke Keranjang</a>
+
                 <!-- <a href="<?= base_url(); ?>admin/hapus/<?= $pr['id']; ?>" class="badge badge-danger" onclick="return confirm('Apakah anda yakin ingin menghapus produk ini ?')">delete</a> -->
               </td>
             </tr>
@@ -81,10 +83,10 @@
           <?php endforeach; ?>
         </tbody>
       </table>
-     </div>
-      <?= $this->pagination->create_links(); ?>
-
     </div>
+    <?= $this->pagination->create_links(); ?>
+
+  </div>
 
 
 </div>

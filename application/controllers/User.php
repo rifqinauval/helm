@@ -26,6 +26,9 @@ class User extends CI_Controller
         $data['start'] = $this->uri->segment(4);
         //$data['helm'] = $this->helm->getProduk(1, 3);
         $data['helm_jadi'] = $this->helm->getProduk($config['per_page'], $data['start']);
+
+        //Cart
+        $this->load->library('cart');
     }
 
     public function index()
@@ -57,8 +60,6 @@ class User extends CI_Controller
         $this->load->view('templates/topbar', $data);
         $this->load->view('user/data_produk_user', $data);
         $this->load->view('templates/footbar');
-      
-        
     }
 
     public function detail($id)
@@ -172,5 +173,29 @@ class User extends CI_Controller
                 }
             }
         }
+    }
+
+    public function tambah_ke_keranjang($id)
+    {
+        $barang = $this->Helm_model->find($id);
+
+        $data = array(
+            'id'      => $barang->id,
+            'qty'     => 1,
+            'price'   => $barang->harga,
+            'name'    => $barang->tipe,
+
+        );
+
+        $this->cart->insert($data);
+        redirect('user/data_produk_user');
+    }
+
+    public function detail_keranjang()
+    {
+        $this->load->view('templates/header');
+        $this->load->view('templates/sidebar');
+        $this->load->view('user/keranjang');
+        $this->load->view('templates/footbar');
     }
 }
