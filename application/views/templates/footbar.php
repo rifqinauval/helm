@@ -2,7 +2,7 @@
 <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; WPU Rifqi <?= date('Y') ?></span>
+            <span>Copyright &copy; REKWEB Punteun Slurrr <?= date('Y') ?></span>
           </div>
         </div>
       </footer>
