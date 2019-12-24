@@ -186,7 +186,7 @@ class User extends CI_Controller
             'name'    => $barang->tipe,
 
         );
-        
+
 
         $this->cart->insert($data);
         redirect('user/data_produk_user');
@@ -200,6 +200,35 @@ class User extends CI_Controller
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
         $this->load->view('user/keranjang');
+        $this->load->view('templates/footbar');
+    }
+
+    public function hapus_keranjang()
+    {
+        $this->cart->destroy();
+        redirect('user/data_produk_user');
+    }
+
+    public function pembayaran()
+    {
+        $data['title'] = 'Pembayaran';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('user/pembayaran');
+        $this->load->view('templates/footbar');
+    }
+
+    public function proses_pembayaran()
+    {
+        $this->cart->destroy();
+        $data['title'] = 'Proses Pemesanan';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('user/proses_pembayaran');
         $this->load->view('templates/footbar');
     }
 }

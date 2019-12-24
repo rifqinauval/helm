@@ -30,4 +30,15 @@
         </tr>
     </table>
 
+    <div>
+        <a href="<?= base_url('user/hapus_keranjang') ?>">
+            <div class="btn btn-sm btn-danger">Hapus Keranjang</div>
+        </a>
+        <a href="<?= base_url('user/data_produk_user') ?>">
+            <div class="btn btn-sm btn-primary">Ayo Beli Lagi!!</div>
+        </a>
+        <a href="<?= base_url('user/pembayaran') ?>">
+            <div class="btn btn-sm btn-success">Pembayaran</div>
+        </a>
+    </div>
 </div>
