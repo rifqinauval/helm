@@ -22,9 +22,7 @@
          <div class="navbar">
            <ul class="nav navbar-nav navbar-right">
              <li>
-               <?php $keranjangs = 'Keranjang Belanja : ' . $this->cart->total_items() . 'items'; ?>
-
-               <?= anchor('user/detail_keranjang', $keranjangs) ?>
+               
              </li>
            </ul>
          </div>

@@ -186,6 +186,7 @@ class User extends CI_Controller
             'name'    => $barang->tipe,
 
         );
+        
 
         $this->cart->insert($data);
         redirect('user/data_produk_user');
@@ -193,8 +194,11 @@ class User extends CI_Controller
 
     public function detail_keranjang()
     {
-        $this->load->view('templates/header');
-        $this->load->view('templates/sidebar');
+        $data['title'] = 'Detail Data Produk';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
         $this->load->view('user/keranjang');
         $this->load->view('templates/footbar');
     }

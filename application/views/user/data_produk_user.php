@@ -1,21 +1,7 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
-  <!-- Page Heading -->
-  <!-- <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1> -->
 
-  <!-- <div class="row">
-        <div class="col-md-5">
-            <form action="<?= base_url('user'); ?>" method="post">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Cari Helm...." name="keyword" autocomplete="off" autofocus>
-                    <div class="input-group-append">
-                        <input class="btn btn-warning" type="submit" name="submit" value="Cari">
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>   -->
 
   <div class="row">
     <div class="col-lg">
@@ -40,10 +26,15 @@
         </div>
       </div>
 
+      <?php $keranjangs = 'Keranjang Belanja : ' . $this->cart->total_items() . 'items'; ?>
+
+      <?= anchor('user/detail_keranjang', $keranjangs) ?>
+
       <table class="table table-hover">
         <thead>
           <tr>
             <!-- <th scope="col">#</th> -->
+            <th scope="col">Gambar</th>
             <th scope="col">Merek</th>
             <th scope="col">Tipe</th>
             <!-- <th scope="col">Ukuran</th>
@@ -66,6 +57,7 @@
           <?php foreach ($produk as $pr) : ?>
             <tr>
               <!-- <th scope="row"><?= $i; ?></th> -->
+              <td><img class="img-produk" src="<?= base_url('assets/img/produk/') . $pr['gambar']; ?>" style=" height: 10rem;"></td>
               <td><?= $pr['merek']; ?></td>
               <td><?= $pr['tipe']; ?></td>
               <!-- <td><?= $pr['ukuran']; ?></td>
