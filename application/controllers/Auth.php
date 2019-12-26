@@ -47,9 +47,9 @@ class Auth extends CI_Controller{
                     ];
                     $this->session->set_userdata($data);
                     if($user['role_id']==1){
-                        redirect('admin');
+                        redirect('admin/data_produk');
                     }else{
-                        redirect('user');
+                        redirect('user/data_produk_user');
                     }
                     
                 }else{
@@ -83,7 +83,7 @@ class Auth extends CI_Controller{
         
 
         if($this->form_validation->run()==false){
-            $data['title'] = 'WPU User Registration';
+            $data['title'] = 'User Registration';
             $this->load->view('templates/auth_header', $data);
             $this->load->view('auth/registration');
             $this->load->view('templates/auth_footer');
@@ -193,7 +193,7 @@ class Auth extends CI_Controller{
         $this->session->unset_userdata('email');
         $this->session->unset_userdata('role_id');
 
-        $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Account Activation failed !</div>');
+        $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">Logout Success!</div>');
         redirect('auth');
     }
 

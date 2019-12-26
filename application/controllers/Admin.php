@@ -29,18 +29,18 @@ class Admin extends CI_Controller
         $data['helm_jadi'] = $this->helm->getProduk($config['per_page'], $data['start']);
     }
 
-    public function index()
-    {
+    // public function index()
+    // {
 
-        $data['title'] = 'Dashboard';
+    //     $data['title'] = 'Dashboard';
 
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('admin/index', $data);
-        $this->load->view('templates/footbar');
-    }
+    //     $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+    //     $this->load->view('templates/header', $data);
+    //     $this->load->view('templates/sidebar', $data);
+    //     $this->load->view('templates/topbar', $data);
+    //     $this->load->view('admin/index', $data);
+    //     $this->load->view('templates/footbar');
+    // }
 
     public function data_produk()
     {

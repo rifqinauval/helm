@@ -32,17 +32,20 @@
                 <div class="form-group">
                     <label>Pilih Pengiriman</label>
                     <select class="form-control">
-                        <option>JDK</option>
-                        <option>JRE</option>
-                        <option>VSC</option>
+                        <option>JNE</option>
+                        <option>J&T</option>
+                        <option>POS Indonesia</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label>Pilih Metode Pembayaran</label>
                     <select class="form-control">
-                        <option>CEODE</option>
-                        <option>GESEK</option>
-                        <option>KREDIT</option>
+                        <option>Paypal</option>
+                        <option>Akulaku</option>
+                        <option>Alfamart</option>
+                        <option>Indomaret</option>
+                        <option>BRI</option>
+                        <option>BCA</option>
                     </select>
                 </div>
 
@@ -50,7 +53,7 @@
             </form>
         <?php
                 } else {
-                    echo "<h4>Loh Kok Keranjang Maish Kosong, Beli Produk Dulu!!!";
+                    echo "<h4>Keranjang Masih Kosong";
                 }
         ?>
         </div>

@@ -47,7 +47,7 @@ class User extends CI_Controller
     public function data_produk_user()
     {
 
-        $data['title'] = 'Data Produk';
+        $data['title'] = 'Produk';
 
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['produk'] = $this->db->get('helm_jadi')->result_array();
